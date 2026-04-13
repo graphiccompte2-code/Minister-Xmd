@@ -160,7 +160,7 @@ async function resetAllSettings() {
 }
 
 module.exports = {
-    SettingsDB,
+    
     DEFAULT_SETTINGS,
     initializeSettings,
     getSetting,
