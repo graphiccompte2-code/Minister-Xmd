@@ -1,3 +1,4 @@
+const { logError } = require('../gift/logError');
 const { gmd, commands, getSetting } = require("../gift");
 const fs = require("fs").promises;
 const fsA = require("node:fs");

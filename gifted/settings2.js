@@ -1,3 +1,4 @@
+const { logError } = require('../gift/logError');
 const { gmd } = require("../gift/gmdCmds");
 const { getSetting, setSetting } = require("../gift/database/settings");
 const {

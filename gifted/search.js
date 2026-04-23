@@ -1,3 +1,4 @@
+const { logError } = require('../gift/logError');
 const { gmd, gmdSticker } = require("../gift"),
   fs = require("fs").promises,
   fss = require("fs"),

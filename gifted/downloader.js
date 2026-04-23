@@ -1,3 +1,4 @@
+const { logError } = require('../gift/logError');
 const {
         gmd,
         gitRepoRegex,

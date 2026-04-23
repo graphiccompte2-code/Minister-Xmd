@@ -1,3 +1,4 @@
+const { logError } = require('../gift/logError');
 const { gmd, commands } = require("../gift/gmdCmds");
 const {
   getSetting,
@@ -127,7 +128,7 @@ gmd(
       await reply(msg);
       await react("✅");
     } catch (error) {
-      console.error("settings error:", error);
+      logError("settings error", error);
       await react("❌");
       await reply(`❌ Error: ${error.message}`);
     }

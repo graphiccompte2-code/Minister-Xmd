@@ -1,3 +1,4 @@
+const { logError } = require('../gift/logError');
 const { gmd, commands, monospace, formatBytes } = require("../gift"),
   fs = require("fs"),
   axios = require("axios"),
@@ -525,7 +526,7 @@ gmd(
         await react("✅");
       }
     } catch (error) {
-      console.error("Error processing quoted message:", error);
+      logError("Error processing quoted message", error);
       await reply(`❌ An error occurred while processing the message.`);
     }
   },
@@ -797,7 +798,7 @@ gmd(
       await Gifted.sendMessage(sender, mediaData, { quoted: mek });
       await react("✅");
     } catch (error) {
-      console.error("Save Error:", error);
+      logError("Save Error", error);
       await reply(`❌ Failed to save the message. Error: ${error.message}`);
     }
   },
@@ -934,7 +935,7 @@ gmd(
       await sendButtons(Gifted, from, sendOpts);
       await react("✅");
     } catch (error) {
-      console.error("chjid error:", error);
+      logError("chjid error", error);
       await react("❌");
       await reply(`❌ Error fetching channel info: ${error.message}`);
     }

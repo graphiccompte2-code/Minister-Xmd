@@ -1,3 +1,4 @@
+const { logError } = require('../gift/logError');
 const { gmd, getGroupMetadata, getLidMapping } = require("../gift");
 const { getGroupSetting, setGroupSetting } = require("../gift/database/groupSettings");
 
@@ -38,7 +39,7 @@ gmd(
         mentions: [`${userNumber}@s.whatsapp.net`],
       });
     } catch (error) {
-      console.error("Unmute error:", error);
+      logError("Unmute error", error);
       return reply(`❌ Failed to unmute group: ${error.message}`);
     }
   },
@@ -81,7 +82,7 @@ gmd(
         mentions: [`${userNumber}@s.whatsapp.net`],
       });
     } catch (error) {
-      console.error("Mute error:", error);
+      logError("Mute error", error);
       return reply(`❌ Failed to mute group: ${error.message}`);
     }
   },
@@ -175,7 +176,7 @@ ${allParticipants}
       );
       await react("✅");
     } catch (error) {
-      console.error("Error in metadata command:", error);
+      logError("Error in metadata command", error);
       await react("❌");
       await Gifted.sendMessage(
         from,
@@ -1574,7 +1575,7 @@ gmd(
       await Gifted.giftedStatus.sendGroupStatus(from, statusPayload);
       await react("✅");
     } catch (error) {
-      console.error("togroupstatus error:", error);
+      logError("togroupstatus error", error);
       await react("❌");
       return reply(`❌ Error sending group status: ${error.message}`);
     }
@@ -1747,7 +1748,7 @@ gmd(
         { quoted: mek },
       );
     } catch (error) {
-      console.error("Tag custom error:", error);
+      logError("Tag custom error", error);
       return reply(`❌ Failed to tag custom: ${error.message}`);
     }
   },
@@ -1834,7 +1835,7 @@ gmd(
         { quoted: mek },
       );
     } catch (error) {
-      console.error("Hidetag error:", error);
+      logError("Hidetag error", error);
       return reply(`❌ Failed to send hidden tag: ${error.message}`);
     }
   },
@@ -2039,7 +2040,7 @@ gmd(
 
       await react("✅");
     } catch (error) {
-      console.error("Tagall error:", error);
+      logError("Tagall error", error);
       return reply(`❌ Failed to tag all: ${error.message}`);
     }
   },
@@ -2110,7 +2111,7 @@ gmd(
 
       await react("✅");
     } catch (error) {
-      console.error("Tagadmins error:", error);
+      logError("Tagadmins error", error);
       return reply(`❌ Failed to tag admins: ${error.message}`);
     }
   },

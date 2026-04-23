@@ -1,3 +1,4 @@
+const { logError } = require('../gift/logError');
 const { gmd, commands, getSetting } = require("../gift");
 const fs = require("fs").promises;
 const fsA = require("node:fs");
@@ -139,7 +140,7 @@ gmd(
         "✅ Group Profile picture updated successfully (full image)!",
       );
     } catch (error) {
-      console.error("Error updating group profile picture:", error);
+      logError("Error updating group profile picture", error);
 
       if (tempFilePath) {
         await fs.unlink(tempFilePath).catch(console.error);
@@ -215,7 +216,7 @@ gmd(
       await fs.unlink(tempFilePath);
       await reply("✅ Profile picture updated successfully (full image)!");
     } catch (error) {
-      console.error("Error updating profile picture:", error);
+      logError("Error updating profile picture", error);
 
       if (tempFilePath) {
         await fs.unlink(tempFilePath).catch(console.error);
@@ -337,7 +338,7 @@ gmd(
         await react("✅");
       }
     } catch (error) {
-      console.error("Error in whois command:", error);
+      logError("Error in whois command", error);
       await reply(
         `❌ An error occurred while fetching profile information.\nError: ${error.message}`,
       );
@@ -407,7 +408,7 @@ gmd(
       }
       await fs.unlink(tempFilePath).catch(console.error);
     } catch (error) {
-      console.error("Error updating profile picture:", error);
+      logError("Error updating profile picture", error);
       await reply(`❌ An error occurred: ${error.message}`);
       await react("❌");
       if (tempFilePath) {
@@ -489,7 +490,7 @@ gmd(
         await react("✅");
       }
     } catch (error) {
-      console.error("Error processing profile picture:", error);
+      logError("Error processing profile picture", error);
       await reply(`❌ An error occurred while fetching the profile picture.`);
       await react("❌");
     }
@@ -542,7 +543,7 @@ gmd(
 
       await react("✅");
     } catch (error) {
-      console.error("getgcpp error:", error);
+      logError("getgcpp error", error);
       await react("❌");
       await reply(`❌ Failed to get group picture: ${error.message}`);
     }
@@ -635,14 +636,14 @@ gmd(
       await Gifted.sendMessage(from, msg);
       await react("✅");
     } catch (e) {
-      console.error("Error in vv2 command:", e);
+      logError("Error in vv2 command", e);
       reply(`Error: ${e.message}`);
     } finally {
       if (tempFilePath) {
         try {
           await fs.unlink(tempFilePath);
         } catch (cleanupError) {
-          console.error("Failed to clean up temp file:", cleanupError);
+          logError("Failed to clean up temp file", cleanupError);
         }
       }
     }
@@ -735,14 +736,14 @@ gmd(
       await Gifted.sendMessage(sender, msg);
       await react("✅");
     } catch (e) {
-      console.error("Error in vv command:", e);
+      logError("Error in vv command", e);
       reply(`Error: ${e.message}`);
     } finally {
       if (tempFilePath) {
         try {
           await fs.unlink(tempFilePath);
         } catch (cleanupError) {
-          console.error("Failed to clean up temp file:", cleanupError);
+          logError("Failed to clean up temp file", cleanupError);
         }
       }
     }
@@ -1513,7 +1514,7 @@ gmd(
       );
       await react("✅");
     } catch (error) {
-      console.error("setsudo error:", error);
+      logError("setsudo error", error);
       await react("❌");
       await reply(`❌ Error: ${error.message}`);
     }
@@ -1588,7 +1589,7 @@ gmd(
       );
       await react("✅");
     } catch (error) {
-      console.error("delsudo error:", error);
+      logError("delsudo error", error);
       await react("❌");
       await reply(`❌ Error: ${error.message}`);
     }
@@ -1775,7 +1776,7 @@ gmd(
 
       await react("✅");
     } catch (error) {
-      console.error("getcmd error:", error);
+      logError("getcmd error", error);
       await react("❌");
       await reply(`❌ Error: ${error.message}`);
     }
@@ -1871,7 +1872,7 @@ gmd(
 
       await react("✅");
     } catch (error) {
-      console.error("getjid error:", error);
+      logError("getjid error", error);
       await react("❌");
       await reply(`❌ Error: ${error.message}`);
     }
@@ -2010,7 +2011,7 @@ gmd(
             conversionNote = `\n\nℹ️ Converted from JID: ${quotedUser || q}`;
           }
         } catch (error) {
-          console.error("LID conversion error:", error);
+          logError("LID conversion error", error);
           conversionNote = `\n\n⚠️ Could not convert (already in LID)`;
         }
       }
@@ -2031,7 +2032,7 @@ gmd(
 
       await react("✅");
     } catch (error) {
-      console.error("getlid error:", error);
+      logError("getlid error", error);
       await react("❌");
       await reply(`❌ Error: ${error.message}`);
     }
@@ -2072,7 +2073,7 @@ gmd(
       await reply(msg);
       await react("✅");
     } catch (error) {
-      console.error("getsudo error:", error);
+      logError("getsudo error", error);
       await react("❌");
       await reply(`❌ Error: ${error.message}`);
     }
