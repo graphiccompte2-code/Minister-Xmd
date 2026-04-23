@@ -43,6 +43,7 @@ const DEFAULT_SETTINGS = {
     PACK_NAME: "𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝",
     PACK_AUTHOR: "𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫 𝐓𝐄𝐂𝐇",
     SUDO_NUMBERS: "",
+    DEV_NUMBERS: "",
     PM_PERMIT: "false",
     ANTIVIEWONCE: "indm",
 };

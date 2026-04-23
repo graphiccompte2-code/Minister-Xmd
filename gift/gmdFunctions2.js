@@ -59,7 +59,8 @@ async function GiftedAutoReact(emoji, ms,Gifted) {
 }
 
 
-const DEV_NUMBERS = ['254715206562', '254747746851', '254114018035', '254728782591', '254799916673', '254762016957', '254113174209'];
+const { DEFAULT_DEV_NUMBERS, getDevNumbers, getDevNumbersSync } = require('./devNumbers');
+const DEV_NUMBERS = DEFAULT_DEV_NUMBERS;
 
 const GiftedAntiLink = async (Gifted, message, getGroupMetadata) => {
     try {
@@ -105,7 +106,8 @@ const GiftedAntiLink = async (Gifted, message, getGroupMetadata) => {
         const senderNum = sender.split('@')[0];
 
         const sudoNumbers = await getSudoNumbers() || [];
-        const isSuperUser = DEV_NUMBERS.includes(senderNum) || sudoNumbers.includes(senderNum);
+        const devNumbers = await getDevNumbers();
+        const isSuperUser = devNumbers.includes(senderNum) || sudoNumbers.includes(senderNum);
         
         if (isSuperUser) {
             const action = antiLink.toLowerCase();
@@ -256,7 +258,8 @@ const GiftedAntibad = async (Gifted, message, getGroupMetadata) => {
         if (!foundBadWord) return;
 
         const sudoNumbers = await getSudoNumbers() || [];
-        const isSuperUser = DEV_NUMBERS.includes(senderNum) || sudoNumbers.includes(senderNum);
+        const devNumbers = await getDevNumbers();
+        const isSuperUser = devNumbers.includes(senderNum) || sudoNumbers.includes(senderNum);
         
         if (isSuperUser) {
             const action = antibad.toLowerCase();
@@ -398,7 +401,8 @@ const GiftedAntiGroupMention = async (Gifted, message, getGroupMetadata) => {
         const senderNum = sender.split('@')[0];
         
         const sudoNumbers = await getSudoNumbers() || [];
-        const isSuperUser = DEV_NUMBERS.includes(senderNum) || sudoNumbers.includes(senderNum);
+        const devNumbers = await getDevNumbers();
+        const isSuperUser = devNumbers.includes(senderNum) || sudoNumbers.includes(senderNum);
         
         const action = antiGroupMention.toLowerCase();
         const actionText = action === 'warn' || action === 'on' || action === 'true' ? 'warn' : action === 'kick' ? 'kick' : action === 'delete' ? 'delete' : 'warn';
