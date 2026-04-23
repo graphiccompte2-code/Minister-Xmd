@@ -1,33 +1,4 @@
-const { DATABASE } = require("./database");
-const { DataTypes } = require("sequelize");
-const path = require("path");
-const config = require("../../config");
-
 const packageJson = require("../../package.json");
-
-const SettingsDB = DATABASE.define(
-    "BotSettings",
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        key: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        value: {
-            type: DataTypes.TEXT,
-            allowNull: true,
-        },
-    },
-    {
-        tableName: "bot_settings",
-        timestamps: true,
-    },
-);
 
 const DEFAULT_SETTINGS = {
     PREFIX: ".",
@@ -38,9 +9,9 @@ const DEFAULT_SETTINGS = {
     CAPTION: "©𝟐𝟎𝟐𝟓 𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝 𝐕3",
     BOT_PIC: "https://files.catbox.moe/277hum.jpg",
     VERSION: packageJson.version || "3.0.0",
-    MODE: config.MODE || "public",
+    MODE: "public",
     WARN_COUNT: "3",
-    TIME_ZONE: config.TIME_ZONE || "Africa/Nairobi",
+    TIME_ZONE: "Africa/Nairobi",
     DM_PRESENCE: "online",
     GC_PRESENCE: "online",
     CHATBOT: "false",
@@ -50,8 +21,8 @@ const DEFAULT_SETTINGS = {
     ANTI_EDIT: "indm",
     ANTICALL: "false",
     ANTICALL_MSG: "*_📞 Auto Call Reject Mode Active. 📵 No Calls Allowed!_*",
-    AUTO_LIKE_STATUS: config.AUTO_LIKE_STATUS || "true",
-    AUTO_READ_STATUS: config.AUTO_READ_STATUS || "true",
+    AUTO_LIKE_STATUS: "true",
+    AUTO_READ_STATUS: "true",
     STATUS_LIKE_EMOJIS: "💛,❤️,💜,🤍,💙",
     AUTO_REPLY_STATUS: "false",
     STATUS_REPLY_TEXT: "*ʏᴏᴜʀ sᴛᴀᴛᴜs ᴠɪᴇᴡᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ ✅*",
@@ -72,79 +43,42 @@ const DEFAULT_SETTINGS = {
     ANTIVIEWONCE: "indm",
 };
 
+const settings = { ...DEFAULT_SETTINGS };
 let initialized = false;
-
-const GROUP_ONLY_SETTINGS = [
-    "WELCOME_MESSAGE",
-    "GOODBYE_MESSAGE",
-    "GROUP_EVENTS",
-    "ANTILINK",
-];
 
 async function initializeSettings() {
     if (initialized) return;
-
-    await SettingsDB.sync();
-
-    await SettingsDB.destroy({
-        where: { key: GROUP_ONLY_SETTINGS },
-    });
-
     for (const [key, defaultValue] of Object.entries(DEFAULT_SETTINGS)) {
-        await SettingsDB.findOrCreate({
-            where: { key },
-            defaults: { key, value: defaultValue },
-        });
+        if (settings[key] === undefined) {
+            settings[key] = defaultValue;
+        }
     }
-
     initialized = true;
     console.log("✅ Bot Settings Initialized");
 }
 
 async function getSetting(key) {
     if (!initialized) await initializeSettings();
-
-    const record = await SettingsDB.findOne({ where: { key } });
-    if (record) {
-        return record.value;
-    }
-
+    if (settings[key] !== undefined) return settings[key];
     return DEFAULT_SETTINGS[key] || null;
 }
 
 async function setSetting(key, value) {
     if (!initialized) await initializeSettings();
-
-    const [record, created] = await SettingsDB.findOrCreate({
-        where: { key },
-        defaults: { key, value },
-    });
-
-    if (!created) {
-        record.value = value;
-        await record.save();
-    }
-
+    settings[key] = value;
     return true;
 }
 
 async function getAllSettings() {
     if (!initialized) await initializeSettings();
-
-    const records = await SettingsDB.findAll();
-    const settings = {};
-    for (const record of records) {
-        settings[record.key] = record.value;
-    }
-    return settings;
+    return { ...settings };
 }
 
 async function resetSetting(key) {
     if (!initialized) await initializeSettings();
-
     const defaultValue = DEFAULT_SETTINGS[key];
     if (defaultValue !== undefined) {
-        await setSetting(key, defaultValue);
+        settings[key] = defaultValue;
         return defaultValue;
     }
     return null;
@@ -152,15 +86,14 @@ async function resetSetting(key) {
 
 async function resetAllSettings() {
     if (!initialized) await initializeSettings();
-
     for (const [key, defaultValue] of Object.entries(DEFAULT_SETTINGS)) {
-        await setSetting(key, defaultValue);
+        settings[key] = defaultValue;
     }
     return true;
 }
 
 module.exports = {
-    
+    SettingsDB: null,
     DEFAULT_SETTINGS,
     initializeSettings,
     getSetting,
