@@ -386,15 +386,37 @@ gmd(
     }
 
     try {
-      const apiUrl = `${GiftedTechApi}/api/search/lyricsv2?apikey=${GiftedApiKey}&query=${encodeURIComponent(q)}`;
-      const res = await axios.get(apiUrl, { timeout: 60000 });
+      let artist = "Unknown", title = q, lyrics = "";
 
-      if (!res.data?.success || !res.data?.result) {
-        await react("❌");
-        return reply("No lyrics found. Please try a different song.");
+      try {
+        const apiUrl = `${GiftedTechApi}/api/search/lyricsv2?apikey=${GiftedApiKey}&query=${encodeURIComponent(q)}`;
+        const res = await axios.get(apiUrl, { timeout: 30000 });
+        if (res.data?.success && res.data?.result?.lyrics) {
+          artist = res.data.result.artist || artist;
+          title = res.data.result.title || title;
+          lyrics = res.data.result.lyrics;
+        }
+      } catch (_) {}
+
+      if (!lyrics) {
+        try {
+          const parts = q.split(/\s*[-–]\s*/);
+          const url = parts.length >= 2
+            ? `https://lyrist.vercel.app/api/${encodeURIComponent(parts.slice(1).join(' '))}/${encodeURIComponent(parts[0])}`
+            : `https://lyrist.vercel.app/api/${encodeURIComponent(q)}`;
+          const r = await axios.get(url, { timeout: 30000 });
+          if (r.data?.lyrics) {
+            artist = r.data.artist || artist;
+            title = r.data.title || title;
+            lyrics = r.data.lyrics;
+          }
+        } catch (_) {}
       }
 
-      const { artist, title, lyrics } = res.data.result;
+      if (!lyrics) {
+        await react("❌");
+        return reply("No lyrics found. Try `.lyrics Artist - Song Title`.");
+      }
 
       let txt = `*${botName} 𝐋𝐘𝐑𝐈𝐂𝐒*\n\n`;
       txt += `🎤 *Artist:* ${artist || "Unknown"}\n`;
