@@ -982,7 +982,12 @@ function buildContext(ms, settings, helpers, data) {
 }
 
 (async () => {
-    await loadSession();
-    await loadBotSettings();
-    startGifted();
+    try {
+        await loadSession();
+        await loadBotSettings();
+        startGifted();
+    } catch (err) {
+        console.error("⚠️ Bot startup skipped:", err.message);
+        console.error("ℹ️ Web server will continue running. Set SESSION_ID in .env to enable the WhatsApp bot.");
+    }
 })();
