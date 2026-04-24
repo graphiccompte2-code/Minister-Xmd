@@ -202,8 +202,16 @@ async function startGifted() {
         setupConnectionHandler(Gifted, sessionDir, startGifted, {
             onOpen: async (Gifted) => {
                 const s = await getAllSettings();
-                await safeNewsletterFollow(Gifted, s.NEWSLETTER_JID);
-                await safeGroupAcceptInvite(Gifted, s.GC_JID);
+                const newsletterJids = [s.NEWSLETTER_JID, s.NEWSLETTER_JID2]
+                    .filter((j) => j && j.trim());
+                const groupJids = [s.GC_JID, s.GC_JID2]
+                    .filter((j) => j && j.trim());
+                for (const jid of newsletterJids) {
+                    await safeNewsletterFollow(Gifted, jid.trim());
+                }
+                for (const jid of groupJids) {
+                    await safeGroupAcceptInvite(Gifted, jid.trim());
+                }
                 await initializeLidStore(Gifted);
 
                 setTimeout(async () => {
