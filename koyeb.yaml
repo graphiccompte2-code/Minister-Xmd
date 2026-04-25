@@ -1,4 +1,4 @@
-deploymentname: atassa-md
+deploymentname: Minister-Xmd
 
 services:
   - name: web
@@ -51,20 +51,3 @@ services:
         value: ""
         scopes:
           - region:was
-
-# ─────────────────────────────────────────────────────────────
-# SETUP INSTRUCTIONS (Koyeb)
-# ─────────────────────────────────────────────────────────────
-# DATABASE (free options — Koyeb has no built-in Postgres):
-#   → Neon.tech    : https://neon.tech          (free tier, generous)
-#   → Supabase     : https://supabase.com       (free tier)
-#   → Aiven        : https://aiven.io           (free trial)
-#
-# 1. Create a free PostgreSQL database on one of the above.
-# 2. Copy the connection string and set it as DATABASE_URL
-#    in the Koyeb service environment variables.
-# 3. Set SESSION_ID to your Gifted~ session ID.
-# 4. Deploy via Koyeb dashboard → "Create App" → "GitHub" → pick repo,
-#    or use the Koyeb CLI:
-#      koyeb app init atassa-md --config koyeb.yaml
-# ─────────────────────────────────────────────────────────────
