@@ -90,7 +90,7 @@ const GiftedAntiLink = async (Gifted, message, getGroupMetadata) => {
         }
 
         const settings = await getAllSettings();
-        const botName = settings.BOT_NAME || '𝐀𝐓𝐀𝐒𝐒𝐀-𝐌𝐃';
+        const botName = settings.BOT_NAME || '𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝';
         
         if (sender.endsWith('@lid')) {
             const cached = getLidMapping(sender);
@@ -232,7 +232,7 @@ const GiftedAntibad = async (Gifted, message, getGroupMetadata) => {
         if (!badWords || badWords.length === 0) return;
 
         const settings = await getAllSettings();
-        const botName = settings.BOT_NAME || '𝐀𝐓𝐀𝐒𝐒𝐀-𝐌𝐃';
+        const botName = settings.BOT_NAME || '𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝';
         
         if (sender.endsWith('@lid')) {
             const cached = getLidMapping(sender);
@@ -385,7 +385,7 @@ const GiftedAntiGroupMention = async (Gifted, message, getGroupMetadata) => {
         if (!sender || sender.endsWith('@g.us')) return;
         
         const settings = await getAllSettings();
-        const botName = settings.BOT_NAME || '𝐀𝐓𝐀𝐒𝐒𝐀-𝐌𝐃';
+        const botName = settings.BOT_NAME || '𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝';
         
         if (sender.endsWith('@lid')) {
             const cached = getLidMapping(sender);
@@ -519,7 +519,7 @@ function getTimeBlock() {
 const GiftedAutoBio = async (Gifted) => {
                 try {
                     const settings = await getAllSettings();
-                    const botName = settings.BOT_NAME || '𝐀𝐓𝐀𝐒𝐒𝐀-𝐌𝐃';
+                    const botName = settings.BOT_NAME || '𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝';
                     
                     const block = getTimeBlock();
                     const timeDate = getCurrentDateTime();
@@ -646,7 +646,7 @@ function GiftedChatBot(Gifted, chatBot, chatBotMode, createContext, createContex
                 if (!text || typeof text !== 'string') return;
 
                 const settings = await getAllSettings();
-                const botName = settings.BOT_NAME || '𝐀𝐓𝐀𝐒𝐒𝐀-𝐌𝐃';
+                const botName = settings.BOT_NAME || '𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝';
                 const aiResponse = await getAIResponse(text);
 
                 if (chatBot === "true") {
@@ -654,7 +654,7 @@ function GiftedChatBot(Gifted, chatBot, chatBotMode, createContext, createContex
                         text: String(aiResponse),
                         ...(await createContext(jid, {
                             title: `${botName} 𝐂𝐇𝐀𝐓 𝐁𝐎𝐓`,
-                            body: '𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆𝐢𝐟𝐭𝐞𝐝 𝐀𝐩𝐢'
+                            body: '𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫 𝐀𝐩𝐢'
                         }))
                     }, { quoted: msg });
                 }
@@ -675,7 +675,7 @@ function GiftedChatBot(Gifted, chatBot, chatBotMode, createContext, createContex
                             waveform: [1000, 0, 1000, 0, 1000, 0, 1000],
                             ...(await createContext2(jid, {
                                title: `${botName} 𝐀𝐔𝐃𝐈𝐎-𝐂𝐇𝐀𝐓 𝐁𝐎𝐓`,
-                               body: '𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆𝐢𝐟𝐭𝐞𝐝 𝐀𝐩𝐢𝐬'
+                               body: '𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫 𝐀𝐩𝐢𝐬'
                             }))
                         }, { quoted: msg });
                     }
@@ -817,7 +817,7 @@ const processMediaMessage = async (deletedMessage) => {
 
 const GiftedAntiDelete = async (Gifted, deletedMsg, key, deleter, sender, botOwnerJid, deleterPushName, senderPushName) => {
     const settings = await getAllSettings();
-    const botName = settings.BOT_NAME || '𝐀𝐓𝐀𝐒𝐒𝐀-𝐌𝐃';
+    const botName = settings.BOT_NAME || '𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝';
     const botPic = settings.BOT_PIC || '';
     const botFooter = settings.FOOTER || '';
     const antiDelete = settings.ANTIDELETE || 'indm';
@@ -1103,7 +1103,7 @@ const GiftedAntiViewOnce = async (Gifted, message) => {
         const botJid = Gifted.user?.id?.split(":")[0] + "@s.whatsapp.net";
         const targetJid = antiViewOnce === "indm" ? botJid : message.key.remoteJid;
         const senderNum = (message.key.participant || message.key.remoteJid).split("@")[0].split(":")[0];
-        const botName = settings.BOT_NAME || "GIFTED MD";
+        const botName = settings.BOT_NAME || "Minister-Xmd";
         
         const mediaMessage = {
             ...viewOnceContent[mediaType],
