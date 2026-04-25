@@ -43,9 +43,7 @@ gmd(
 
     await sendButtons(Gifted, from, {
       title: "Bot Speed",
-      text: `🏃 Pong: ${responseTime}ms`,
-      Dᴀᴛᴇ:`${monospace(date)}`,
-      Tɪᴍᴇ:`${monospace(time)}`,
+      text: `☄️ Latency: ${responseTime}ms`,
       Uᴘᴛɪᴍᴇ :`${monospace(uptime)}`,
       footer: `> *${botFooter}*`,
       buttons: [
