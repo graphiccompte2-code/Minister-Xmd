@@ -18,7 +18,7 @@ gmd(
   {
     pattern: "ping",
     aliases: ["pi", "p"],
-    react: "🏃",
+    react: "⚡",
     category: "general",
     description: "Check bot response speed",
   },
@@ -42,11 +42,8 @@ gmd(
     const responseTime = Math.floor(elapsed[0] * 1000 + elapsed[1] / 1000000);
 
     await sendButtons(Gifted, from, {
-//=======================================================//
-//=================================//
-      
       title: "Bot Speed",
-      text: `☄️ Latency: ${responseTime}ms`,
+      text: `⚡ Pong: ${responseTime}ms`,
       footer: `> *${botFooter}*`,
       buttons: [
         { id: `${botPrefix}uptime`, text: "⏱️ Uptime" },
@@ -55,11 +52,10 @@ gmd(
           buttonParamsJson: JSON.stringify({
             display_text: "WaChannel",
             url: newsletterUrl,
-             }),
-        
+          }),
         },
       ],
-       });
+    });
 
     /*await Gifted.sendMessage(from, {
       text: 
