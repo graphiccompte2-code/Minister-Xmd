@@ -664,7 +664,7 @@ function verifyJidState(jid) {
         console.error('Your verified', jid);
         return false;
     }
-    console.log('Welcome to Gifted Md', jid);
+    console.log('Welcome to Minister-Xmd', jid);
     return true;
 }
 
