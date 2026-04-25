@@ -42,11 +42,11 @@ gmd(
     const responseTime = Math.floor(elapsed[0] * 1000 + elapsed[1] / 1000000);
 
     await sendButtons(Gifted, from, {
-      title: stylishReply("Bot Speed"),
+      title: stylishReply("Bot Latency"),
       text: stylishReply(`💣 Latency: ${responseTime}ms`),
       footer:stylishReply( `*${botFooter}*`),
       buttons: [
-        { id: `${botPrefix}uptime`, text: "⏱️ Uptime" },
+        { id: `${botPrefix}uptime`, text: "🌊 Runtime" },
         {
           name: "cta_url",
           buttonParamsJson: JSON.stringify({
@@ -394,7 +394,7 @@ gmd(
         categorized[cat].sort((a, b) => a.pattern.localeCompare(b.pattern));
       }
 
-      let header = `┏▣ ◈ *${monospace(botName)}* ◈
+      let header = `┏▣ ✦ *${monospace(botName)}* ✦
 ┃ *Mᴏᴅᴇ:*  ${monospace(botMode)}
 ┃ *Pʀᴇғɪx:*  [ ${monospace(botPrefix)} ]
 ┃ *Pʟᴜɢɪɴs:*  ${monospace(totalCommands.toString())}
@@ -403,11 +403,11 @@ gmd(
 ┗▣\n${readmore}\n`;
 
       const formatCategory = (category, gmds) => {
-        const title = `┏▣ ◈ *${monospace(category.toUpperCase())}* ◈ \n`;
+        const title = `┏▣ ✦ *${monospace(category.toUpperCase())}* ✦ \n`;
         const body = gmds
           .map((gmd) => {
             const prefix = gmd.isBody ? "" : botPrefix;
-            return `│*︎ ${monospace(prefix + gmd.pattern)}`;
+            return `│✦*︎ ${monospace(prefix + gmd.pattern)}`;
           })
           .join("\n");
         const footer = `┗▣\n`;
@@ -554,10 +554,10 @@ gmd(
 
     await sendButtons(Gifted, from, {
       title: "",
-      text: stylishReply(`⏱️ Uptime: ${days}d ${hours}h ${minutes}m ${seconds}s`),
-      footer: `> *${botFooter}*`,
+      text: stylishReply(`🌊 Runtime: ${days}d ${hours}h ${minutes}m ${seconds}s`),
+      footer: tylishReply(` ${botFooter}`),
       buttons: [
-        { id: `${botPrefix}ping`, text: stylishReply("💣 Latency") },
+        { id: `${botPrefix}ping`, text: "💣 Latency" },
         {
           name: "cta_url",
           buttonParamsJson: JSON.stringify({
