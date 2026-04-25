@@ -1,8 +1,7 @@
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 <h1 align="center"> 𝐌𝐢𝐧𝐢𝐬𝐭𝐞𝐫-𝐗𝐦𝐝 </h1>
 
-- Bot is Safe for Heroku so don't ask more questions
-
+- Bot is Safe working safely for your heroku account and also Whatsapp account 
 
 <details>
 <summary>NOTICE!!! (TAP TO READ)</summary>
@@ -35,7 +34,7 @@
 <summary>GET YOUR SESSION_ID</summary>
 <a href="https://gifted-session-gp8o.onrender.com"><img src="https://img.shields.io/badge/CLICK%20HERE-green" alt="Pairing Code" width="150"></a>
 
-- Session ID must start with **Gifted~**
+- Session ID must start with **Minister~**
 </details>
 
 ### 𝟑. 𝐃𝐄𝐏𝐋𝐎𝐘𝐌𝐄𝐍𝐓 𝐒𝐄𝐂𝐓𝐈𝐎𝐍:
