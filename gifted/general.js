@@ -77,6 +77,9 @@ function formatUptime(seconds) {
       
       title: "Bot Speed",
       text: `☄️ Latency: ${responseTime}ms`,
+      Dᴀᴛᴇ :`${monospace(date)}`,
+      Tɪᴍᴇ:` ${monospace(time)}`,
+      Uᴘᴛɪᴍᴇ :`${monospace(uptime)}`,
       footer: `> *${botFooter}*`,
       buttons: [
         { id: `${botPrefix}uptime`, text: "⏱️ Uptime" },
@@ -86,9 +89,10 @@ function formatUptime(seconds) {
             display_text: "WaChannel",
             url: newsletterUrl,
              }),
+        
         },
       ],
-    });
+       });
 
     /*await Gifted.sendMessage(from, {
       text: 
