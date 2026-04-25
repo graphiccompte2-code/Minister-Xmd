@@ -188,7 +188,7 @@ gmd(
 
 *🧑‍💻 :* ${monospace(botName)} Iꜱ Aᴠᴀɪʟᴀʙʟᴇ
 
-┏▣ ◈ *ALL MENU* ◈
+┏▣ ✦ *ALL MENU* ✦
 │*︎ Lɪꜱᴛ
 │*︎ Cᴀᴛᴇɢᴏʀʏ
 │*︎ Hᴇʟᴘ
@@ -280,7 +280,7 @@ gmd(
       ).length;
 
       let list = `
-┏▣ ◈ *${monospace(botName)}* 〕◈
+┏▣ ✦ *${monospace(botName)}* 〕✦
 │ ✦ *Mᴏᴅᴇ* : ${monospace(botMode)}
 │ ✦ *Pʀᴇғɪx* : [ ${monospace(botPrefix)} ]
 │ ✦ *Usᴇʀ* : ${monospace(pushName)}
@@ -407,7 +407,7 @@ gmd(
         const body = gmds
           .map((gmd) => {
             const prefix = gmd.isBody ? "" : botPrefix;
-            return `│✦*︎ ${monospace(prefix + gmd.pattern)}`;
+            return `│✦ ${monospace(prefix + gmd.pattern)}`;
           })
           .join("\n");
         const footer = `┗▣\n`;
@@ -555,7 +555,7 @@ gmd(
     await sendButtons(Gifted, from, {
       title: "",
       text: stylishReply(`🌊 Runtime: ${days}d ${hours}h ${minutes}m ${seconds}s`),
-      footer: tylishReply(` ${botFooter}`),
+      footer: stylishReply(` ${botFooter}`),
       buttons: [
         { id: `${botPrefix}ping`, text: "💣 Latency" },
         {
