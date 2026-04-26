@@ -178,6 +178,7 @@ async function startGifted() {
         };
 
         Gifted = giftedConnect(socketConfig);
+        require("./gift/stylishReply").patchSendMessage(Gifted);
         store.bind(Gifted.ev);
 
         Gifted.ev.process(async (events) => {
