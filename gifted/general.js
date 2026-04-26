@@ -186,9 +186,9 @@ gmd(
 ➮Usᴇʀ - ${monospace(pushName)}
 ➮Nᴜᴍ - ${monospace(ownerNumber)}
 
-*🧑‍💻 :* ${monospace(botName)} Iꜱ Aᴠᴀɪʟᴀʙʟᴇ
+*🧑‍💻 : ${monospace(botName)} Iꜱ Aᴠᴀɪʟᴀʙʟᴇ
 
-┏▣ ✦ *ALL MENU* ✦
+┏▣ ✦ ALL MENU ✦
 │*︎ Lɪꜱᴛ
 │*︎ Cᴀᴛᴇɢᴏʀʏ
 │*︎ Hᴇʟᴘ
@@ -280,15 +280,15 @@ gmd(
       ).length;
 
       let list = `
-┏▣ ✦ *${monospace(botName)}* 〕✦
-│ ✦ *Mᴏᴅᴇ* : ${monospace(botMode)}
-│ ✦ *Pʀᴇғɪx* : [ ${monospace(botPrefix)} ]
-│ ✦ *Usᴇʀ* : ${monospace(pushName)}
-│ ✦ *Pʟᴜɢɪɴs* : ${monospace(totalCommands.toString())}
-│ ✦ *Tɪᴍᴇ Zᴏɴᴇ* : ${monospace(timeZone)}
-│ ✦ *Dᴀᴛᴇ Tᴏᴅᴀʏ* : ${monospace(date)}
-│ ✦ *Tɪᴍᴇ Nᴏᴡ* : ${monospace(time)}
-│ ✦ *Uᴘᴛɪᴍᴇ* : ${monospace(uptime)}
+┏▣ ✦ ${monospace(botName)} 〕✦
+│ ✦ Mᴏᴅᴇ : ${monospace(botMode)}
+│ ✦ Pʀᴇғɪx : [ ${monospace(botPrefix)} ]
+│ ✦ Usᴇʀ : ${monospace(pushName)}
+│ ✦ Pʟᴜɢɪɴs : ${monospace(totalCommands.toString())}
+│ ✦ Tɪᴍᴇ Zᴏɴᴇ : ${monospace(timeZone)}
+│ ✦ Dᴀᴛᴇ Tᴏᴅᴀʏ : ${monospace(date)}
+│ ✦ Tɪᴍᴇ Nᴏᴡ : ${monospace(time)}
+│ ✦ Uᴘᴛɪᴍᴇ : ${monospace(uptime)}
 ┗▣${readmore}\n`;
 
       commands.forEach((gmd, index) => {
@@ -394,12 +394,12 @@ gmd(
         categorized[cat].sort((a, b) => a.pattern.localeCompare(b.pattern));
       }
 
-      let header = `┏▣ ✦ *${monospace(botName)}* ✦
-┃ *Mᴏᴅᴇ:*  ${monospace(botMode)}
-┃ *Pʀᴇғɪx:*  [ ${monospace(botPrefix)} ]
-┃ *Pʟᴜɢɪɴs:*  ${monospace(totalCommands.toString())}
-┃ *Dᴀᴛᴇ Tᴏᴅᴀʏ:*  ${monospace(date)}
-┃ *Tɪᴍᴇ Nᴏᴡ:*  ${monospace(time)}
+      let header = `┏▣ ✦ ${monospace(botName)} ✦
+┃ Mᴏᴅᴇ:  ${monospace(botMode)}
+┃ Pʀᴇғɪx:  [ ${monospace(botPrefix)} ]
+┃ Pʟᴜɢɪɴs:  ${monospace(totalCommands.toString())}
+┃ Dᴀᴛᴇ Tᴏᴅᴀʏ:  ${monospace(date)}
+┃ Tɪᴍᴇ Nᴏᴡ:  ${monospace(time)}
 ┗▣\n${readmore}\n`;
 
       const formatCategory = (category, gmds) => {
@@ -421,7 +421,7 @@ gmd(
 
       const giftedMess = {
         image: { url: botPic },
-        caption: `${menu.trim()}\n\n> ${botFooter}`,
+        caption: `${menu.trim()}\n\n ${botFooter}`,
         contextInfo: {
           mentionedJid: [sender],
           forwardingScore: 5,
@@ -482,7 +482,7 @@ gmd(
         await sendButtons(Gifted, from, {
           title: "",
           text: formattedMessage,
-          footer: `> *${botFooter}*`,
+          footer: `${botFooter}`,
           buttons: [
             {
               name: "cta_copy",
