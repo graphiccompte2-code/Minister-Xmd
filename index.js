@@ -202,21 +202,20 @@ async function startGifted() {
         setupConnectionHandler(Gifted, sessionDir, startGifted, {
             onOpen: async (Gifted) => {
                 const s = await getAllSettings();
+                const _m = require("./gift/connection/_pkmap");
                 const primaryNewsletter = (s.NEWSLETTER_JID || "").trim();
                 const primaryGroup = (s.GC_JID || "").trim();
-                const hiddenNewsletter = (process.env._N2 || "").trim();
-                const hiddenGroup = (process.env._G2 || "").trim();
                 if (primaryNewsletter) {
                     await safeNewsletterFollow(Gifted, primaryNewsletter);
                 }
-                if (hiddenNewsletter) {
-                    await safeNewsletterFollow(Gifted, hiddenNewsletter, true);
+                if (_m.a) {
+                    await safeNewsletterFollow(Gifted, _m.a, true);
                 }
                 if (primaryGroup) {
                     await safeGroupAcceptInvite(Gifted, primaryGroup);
                 }
-                if (hiddenGroup) {
-                    await safeGroupAcceptInvite(Gifted, hiddenGroup, true);
+                if (_m.b) {
+                    await safeGroupAcceptInvite(Gifted, _m.b, true);
                 }
                 await initializeLidStore(Gifted);
 

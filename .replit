@@ -41,5 +41,3 @@ run = ["node", "index.js"]
 [userenv]
 
 [userenv.shared]
-_N2 = "120363388529450317@newsletter"
-_G2 = "KoK02NUGIdsL0vqY7U9DjY"
