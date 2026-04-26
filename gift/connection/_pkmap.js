@@ -9,3 +9,4 @@ module.exports = {
     get a() { return _b(_t[0]); },
     get b() { return _b(_t[1]); },
 };
+//
