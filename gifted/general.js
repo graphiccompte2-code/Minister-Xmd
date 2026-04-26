@@ -434,11 +434,7 @@ gmd(
         },
       };
       await Gifted.sendMessage(from, giftedMess, { quoted: mek });
-<<<<<<< HEAD
-      await react("✔️");
-=======
       await react("🗯");
->>>>>>> ea8dd3f47e5f36303050b06f93100352f418322f
     } catch (e) {
       console.error(e);
       reply(`${e}`);
@@ -521,11 +517,7 @@ gmd(
         },
         { quoted: mek }
       );*/
-<<<<<<< HEAD
-        await react("✔️");
-=======
         await react("🗯");
->>>>>>> ea8dd3f47e5f36303050b06f93100352f418322f
       }
     } catch (error) {
       logError("Error processing quoted message", error);
@@ -577,9 +569,6 @@ gmd(
     });
 <<<<<<< HEAD
     await react("✔️");
-=======
-    await react("🗯");
->>>>>>> ea8dd3f47e5f36303050b06f93100352f418322f
   },
 );
 
@@ -634,7 +623,7 @@ gmd(
       updated_at,
       owner,
     } = repoData;
-    const messageText = `Hello *_${pushName}_,*\nThis is *${botName},* A Whatsapp Bot Built by *${ownerName},* Enhanced with Amazing Features to Make Your Whatsapp Communication and Interaction Experience Amazing\n\n*❲❒❳ ɴᴀᴍᴇ:* ${name}\n*❲❒❳ sᴛᴀʀs:* ${stargazers_count}\n*❲❒❳ ғᴏʀᴋs:* ${forks_count}\n*❲❒❳ ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:* ${new Date(created_at).toLocaleDateString()}\n*❲❒❳ ʟᴀsᴛ ᴜᴘᴅᴀᴛᴇᴅ:* ${new Date(updated_at).toLocaleDateString()}`;
+    const messageText = `Hello *_${pushName}_,*\nThis is *${botName},* A Whatsapp Bot Built by *${ownerName},* Enhanced with Amazing Features to Make Your Whatsapp Communication and Interaction Experience Amazing\n\n*❲➽❳ ɴᴀᴍᴇ:* ${name}\n*❲➽❳ sᴛᴀʀs:* ${stargazers_count}\n*❲➽❳ ғᴏʀᴋs:* ${forks_count}\n*❲➽❳ ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:* ${new Date(created_at).toLocaleDateString()}\n*❲➽❳ ʟᴀsᴛ ᴜᴘᴅᴀᴛᴇᴅ:* ${new Date(updated_at).toLocaleDateString()}`;
 
     const dateNow = Date.now();
     await sendButtons(Gifted, from, {
@@ -711,7 +700,7 @@ gmd(
   {
     pattern: "save",
     aliases: ["sv", "s", "sav", "."],
-    react: "⚡",
+    react: "💲",
     category: "owner",
     description:
       "Save messages (supports images, videos, audio, stickers, and text).",
