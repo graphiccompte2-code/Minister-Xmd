@@ -494,7 +494,7 @@ gmd(
             {
               name: "cta_url",
               buttonParamsJson: JSON.stringify({
-                display_text: "WaChannel",
+                display_text: "Channel",
                 url: newsletterUrl,
               }),
             },
@@ -561,13 +561,12 @@ gmd(
         {
           name: "cta_url",
           buttonParamsJson: JSON.stringify({
-            display_text: "WaChannel",
+            display_text: "Channel",
             url: newsletterUrl,
           }),
         },
       ],
     });
-<<<<<<< HEAD
     await react("✔️");
   },
 );
@@ -635,14 +634,14 @@ gmd(
         {
           name: "cta_copy",
           buttonParamsJson: JSON.stringify({
-            display_text: "Copy Link",
+            display_text: "Link Copy",
             copy_code: `https://github.com/${giftedRepo}`,
           }),
         },
         {
           name: "cta_url",
           buttonParamsJson: JSON.stringify({
-            display_text: "Visit Repo",
+            display_text: "Repo click",
             url: `https://github.com/${giftedRepo}`,
           }),
         },
@@ -910,7 +909,7 @@ gmd(
         {
           name: "cta_url",
           buttonParamsJson: JSON.stringify({
-            display_text: "➕ Follow Channel",
+            display_text: "🔱Follow Channel",
             url: channelUrl,
             merchant_url: channelUrl,
           }),
