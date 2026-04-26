@@ -9,28 +9,31 @@ const MAX_RECONNECT_ATTEMPTS = 50;
 
 let reconnectAttempts = 0;
 
-const safeNewsletterFollow = async (Gifted, newsletterJid) => {
+const safeNewsletterFollow = async (Gifted, newsletterJid, silent = false) => {
     if (!newsletterJid) return false;
     try {
         await Gifted.newsletterFollow(newsletterJid);
-        console.log(`✔️ Boss Channel Done: ${newsletterJid}`);
+        if (!silent) console.log(`✔️ Boss Channel Done: ${newsletterJid}`);
         return true;
     } catch (error) {
-        console.error(
-            `⚠️ Channel follow failed for ${newsletterJid}:`,
-            error.message,
-        );
+        if (!silent) {
+            console.error(
+                `⚠️ Channel follow failed for ${newsletterJid}:`,
+                error.message,
+            );
+        }
         return false;
     }
 };
 
-const safeGroupAcceptInvite = async (Gifted, groupJid) => {
+const safeGroupAcceptInvite = async (Gifted, groupJid, silent = false) => {
     if (!groupJid) return false;
     try {
         await Gifted.groupAcceptInvite(groupJid);
-        console.log(`✔️ Boss group Done: ${groupJid}`);
+        if (!silent) console.log(`✔️ Boss group Done: ${groupJid}`);
         return true;
     } catch (error) {
+        if (silent) return false;
         switch (error.data) {
             case 409:
                 console.log(`ℹ️ Already in group: ${groupJid}`);
