@@ -14,7 +14,7 @@ const DEFAULT_SETTINGS = {
     BOT_PIC: "https://files.catbox.moe/277hum.jpg",
     VERSION: packageJson.version || "3.0.0",
     MODE: "public",
-    WARN_COUNT: "3",
+    WARN_COUNT: "2",
     TIME_ZONE: "Africa/Nairobi",
     DM_PRESENCE: "online",
     GC_PRESENCE: "online",
