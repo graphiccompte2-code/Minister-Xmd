@@ -32,7 +32,7 @@
 
 <details>
 <summary>GET YOUR SESSION_ID</summary>
-<a href="https://minister-x-813d243f86f2.herokuapp.com/ "><img src="https://img.shields.io/badge/CLICK%20HERE-green" alt="Pairing Code" width="150"></a>
+<a href="https://ministersession-75e1fa84f0e5.herokuapp.com/pair"><img src="https://img.shields.io/badge/CLICK%20HERE-green" alt="Pairing Code" width="150"></a>
 
 - Session ID must start with **Minister~**
 </details>
