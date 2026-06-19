@@ -8,29 +8,29 @@
   "stack": "heroku-24",
   "env": {
     "SESSION_ID": {
-      "description": "Your bot SESSION_ID. Get one from the pairing session page.",
+      "description": "Minister~H4sIAAAAAAAAA5VU2ZKiSBT9l3wto2VRQSIqohHZywURXCb6IYUEk2KTTEDs8N8nsLqq+mGmp4an5EKce+455+ZPkBeYIBt1QPoJygo3kKL+SLsSAQnM6ihCFRiAEFIIJLAzljd9fM4WZF1G0yvcz+rVfA6fVPF4cJld3K47S5ug8JKTZ3AfgLI+pTj4A6BriFbaYgdefEO9iHRPRpunXVQMJ5mzbVbOptYi7NR1sGmfwb1HhLjCeayWZ5ShCqY26tYQV1+jn61Mzw39tnnS/cuopoYikCSdKOd10EVEV5Uk4SPTg2kqfo2+AWc+a+RcpNqviFvvT9wihekChbq6CvFo/3RWLHEL2wSTN/oExzkKzRDlFNPuy7rXK1WbbdPCPiYkPPGW4JbN5ioYqmMc5Mrz80uhy6eXZssHXyO+27Pn061K7GEyE7vOOyYuf6RTL0LwUM/9VtyFs0XR5elG/Z34unrPyuv/0X1lTQK+UcXDq1GKTLYRrWuJHX2jB8PIm94I1DpFi56OiaF+jb46XxNTyLpheFniTF3YCZsHawsKasGNFaxvwlkWvtw2sbL4pA9pXf2JZWTeorIVxdxfsnKYVxy/9GxhKlyG2NJkZ3OoXc/rRC3KFLJarLbJMBbK4y7189INlNUcahC1bbx2Gt9TL2duyB+smfz8mOgVdWYIJPY+ABWKMaEVpLjI+5o4ADBsXBRUiD7EBdGekzmCUqu2r66GtdA8QtfLSHFJG/8pwzttW67TiVYw5jMYgLIqAkQICg1MaFF1C0QIjBEB0l8/BiBHV/pmW9+MZwcgwhWhXl6XaQHDd0/fP8IgKOqcul0eKP0BVUBiPsuIUpzHpFexzmEVnHGDlDOkBEgRTAn6mA9VKAQSrWr0sbNKEfay69yCO86PIhiA7GEHDoEEOF6YTDmRnzJjUZp8J9/aHhWW5bccUTAA6eMvVuBYbixMeIFlGUaQJt/7+v2DXw8XIgpxSoAEFEsQ06BQVTPrGKrqumzGshLL4HOe91i8CW9ge+sw7tIaWa1/pbKqJbHi+74uhuHNXSymVKAxNO256jz/AwiQQBFrNsTDfTKpkuAU8Jrzig7uMSkVpcP5bhlF0RCVOytw0moMdZau8eyy4Nrtzi3HL7vD1Jg7+Xw7rS/zlNtOr5ERBY8MDUCIGhyg35t5Sctqp6V73vp6bm4y1j8tp8ZOb2nqQf7lWC2Ylewy09l4ZdOknGyDePKyFF5RvApup9FyFTVn3WwP9tZvbjF3mXradda+BfaxMOmviwo/wtQ71b9GGD32Poe9f//p3BvvPl/MffAbxK+L5F+WcbYZ4VdmqSYuUgItODmz2WEkp76/aYx9wCTz9QkJBx0r8VUF9/uPAShTSKOiyoAEYB5WBQ7BAFRF3QfWzKPiD80U2TTnTmz2g6eQUPlzCbY4Q4TCrAQSK4isyLPT8WQAsk4uS5dC+r47QH48NgvufwP+zgAgVQcAAA==",
       "required": true,
       "value": ""
     },
     "MODE": {
       "description": "Worktype of your bot. Use 'public' (everyone can use it) or 'private' (only bot number).",
       "required": true,
-      "value": "public"
+      "value": "private"
     },
     "TIME_ZONE": {
       "description": "Your timezone e.g. Africa/Nairobi, America/New_York, Asia/Kolkata",
       "required": true,
-      "value": "Africa/Nairobi"
+      "value": "Africa"
     },
     "AUTO_LIKE_STATUS": {
       "description": "Auto-like WhatsApp statuses. Set true or false.",
       "required": false,
-      "value": "true"
+      "value": "false"
     },
     "AUTO_READ_STATUS": {
       "description": "Auto-view WhatsApp statuses. Set true or false.",
       "required": false,
-      "value": "true"
+      "value": "false"
     },
     "DATABASE_URL": {
       "description": "PostgreSQL connection URL. Leave blank to use the auto-provisioned Heroku Postgres addon, or supply your own (Neon, Supabase, etc.). Falls back to SQLite if empty and no addon is attached.",
